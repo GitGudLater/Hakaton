@@ -3,12 +3,10 @@
     public class JsonPath
     {
         public int Id { get; set; }
-
-        public double NCoordStart { get; set; }
-        public double WCoordStart { get; set; }
-        public double NCoordEnd { get; set; }
-        public double WCoordEnd { get; set; }
-        public string StartTime { get; set; }
+        
+        public string CoordStart { get; set; }
+        public string CoordFin { get; set; }
+        public string TBegin { get; set; }
 
         public int EmptySeats { get; set; }
         public string Description { get; set; }

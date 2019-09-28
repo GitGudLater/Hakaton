@@ -64,5 +64,20 @@ namespace BLL.Implementations
                 _db.SaveChangesAsync();
             }
         }
+
+        public List<PassengerPathRef> GetPassengersList(int pathId)
+        {
+            List<PassengerPathRef> result = new List<PassengerPathRef>();
+            foreach (var item in _db.PassengerPathRefs)
+            {
+                if (item.Id == pathId)
+                {
+                    result.Add(item);
+                    break;
+                }
+            }
+
+            return result;
+        }
     }
 }

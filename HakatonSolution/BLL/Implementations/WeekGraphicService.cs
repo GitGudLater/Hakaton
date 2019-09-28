@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL.Implementations
 {
-    class WeekGraphicService : IWeekGraphicService
+    public class WeekGraphicService : IWeekGraphicService
     {
         private FullContext _db;
 
