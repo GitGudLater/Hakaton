@@ -11,11 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SityRoutesComponent } from './sity-routes/sity-routes.component';
 import { SityRoutesService } from './sity-routes/Services/sity-routes.service';
+import { AccountService } from './services/account.service';
+import { AccountComponent } from './account/account.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SityRoutesComponent
+    SityRoutesComponent,
+    AccountComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { SityRoutesService } from './sity-routes/Services/sity-routes.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [{ provide: BASE_URL , useValue: "http://examlple/api" },SityRoutesService],
+providers: [{ provide: BASE_URL , useValue: "http://examlple/api" }, SityRoutesService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
