@@ -22,4 +22,18 @@ export class MapComponent implements OnInit {
     });
   }
 
+  updatePath(startPoint: string, endPoint: string){
+    ymaps.multiRouter.MultiRoute({
+      referencePoints: [
+          startPoint,
+          endPoint
+      ],
+      params: {
+          results: 1
+      }
+    }, {
+            boundsAutoApply: true
+    });
+  }
+
 }
