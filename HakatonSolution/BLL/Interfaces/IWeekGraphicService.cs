@@ -2,7 +2,7 @@
 
 namespace BLL.Interfaces
 {
-    interface IWeekGraphicService : IService<WeekGraphic>
+    public interface IWeekGraphicService : IService<WeekGraphic>
     {
     }
 }

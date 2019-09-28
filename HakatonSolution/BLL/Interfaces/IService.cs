@@ -2,7 +2,7 @@
 
 namespace BLL.Interfaces
 {
-    interface IService<T>
+    public interface IService<T>
     {
         T GetById(int id);
         IEnumerable<T> GetAll();

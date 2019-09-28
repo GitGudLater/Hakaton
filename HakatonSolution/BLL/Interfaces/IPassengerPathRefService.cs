@@ -2,7 +2,7 @@
 
 namespace BLL.Interfaces
 {
-    interface IPassengerPathRefService : IService<PassengerPathRef>
+    public interface IPassengerPathRefService : IService<PassengerPathRef>
     {
     }
 }
