@@ -1,0 +1,38 @@
+.listContainer {
+    display:flex;
+}
+
+.routerListElement{
+    width: 250px;
+    display:flex;
+    background: rgb(99, 152, 231);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    cursor: pointer;
+}
+
+.routerListElement     div {
+    flex: 1 1 auto;
+    padding-top: 2px;
+    padding-left: 3px;
+    padding-bottom: 2px;
+    padding-right: 3px;
+}
+.information{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.Click{
+    width: 250px;
+    display:flex;
+    background: rgb(99, 152, 231);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    cursor: pointer;
+}
+
+ul{
+    list-style-type: none;
+}

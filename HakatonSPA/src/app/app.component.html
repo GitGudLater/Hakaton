@@ -1,7 +1,15 @@
-<div [routerLinkActive]='["link-active"]'>
-  <a [routerLink]='["/app-sity-routes"]' (click)='collapse()'>
-    Sity Routes
-  </a>
+<div class="markedLinks">
+      <div class="link">
+        <a [routerLink]='["/app-sity-routes"]' (click)='collapse()'>
+          Sity Routes
+        </a>
+      </div>
+      <div class="link">
+          <a [routerLink]='["/app-account"]' (click)='collapse()'>
+            Login/Registration
+          </a>
+      </div>
 </div>
+
 <router-outlet></router-outlet>
 <!--<app-map></app-map>-->

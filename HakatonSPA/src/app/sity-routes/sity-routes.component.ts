@@ -12,7 +12,7 @@ declare var ymaps:any;
 @Component({
   selector: 'app-sity-routes',
   templateUrl: './sity-routes.component.html',
-  styleUrls: ['./sity-routes.component.sass']
+  styleUrls: ['./sity-routes.component.css']
 })
 export class SityRoutesComponent implements OnInit {
 
@@ -37,6 +37,7 @@ export class SityRoutesComponent implements OnInit {
   }
 
   requestForATrip(_user:User){
+
   }
 
   addTestRoute(){

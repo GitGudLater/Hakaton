@@ -1,0 +1,16 @@
+.markedLinks{
+  display:flex;
+  background: rgb(99, 152, 231);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  width:100%;
+}
+
+.link{
+  padding-left: 5px;
+  transition: 200ms;
+}
+.link:hover{
+  background: white
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Logg } from '../Models/Logg';
 import { Register } from '../Models/Register';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ export class AccountService {
 
   getUserInformation() {
     return this.http.get(this.url);
+  }
+
+  requestInformation(user:User){
+    this.http.post(this.url,user);
   }
 }

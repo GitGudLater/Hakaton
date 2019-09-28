@@ -1,0 +1,15 @@
+.listContainer {
+    display:flex;
+}
+
+.routerListElement{
+    width: 250px;
+    display:flex;
+    background: rgb(235, 227, 116);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    div {
+        flex: 1 1 auto;
+    }
+}
