@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BLL.Implementations.DataAccess;
 using BLL.Interfaces;
+using Common.JsonModels;
 using Common.Model;
 
 namespace BLL.Implementations
@@ -65,6 +66,21 @@ namespace BLL.Implementations
 
                 _db.SaveChangesAsync();
             }
+        }
+
+        public JsonUser GetJsonUser(int userId)
+        {
+            JsonUser result = new JsonUser();
+
+            User user = GetById(userId);
+
+            result.Car = user.Car;
+            result.Description = user.Description;
+            result.Email = user.Email;
+            result.Id = user.Id;
+            result.Password = user.Password;
+
+            return result;
         }
     }
 }
