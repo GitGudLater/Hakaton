@@ -27,7 +27,7 @@ namespace Hakaton.Controllers
 
             for(int i = 0; i < len; i++)
             {
-                jsonPathes[i] = ConvertToJsonPath(pathes[i]);
+                jsonPathes[i] = pathService.GetJsonPath(pathes[i].Id);
             }
             return jsonPathes;
         }
@@ -35,13 +35,15 @@ namespace Hakaton.Controllers
         [HttpGet("{id}")]
         public ActionResult<JsonPath> Get(int id)
         {
-            return ConvertToJsonPath(pathService.GetById(id));
+            return pathService.GetJsonPath(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void post([FromBody] JsonPath path)
+        public void Post([FromBody] JsonPath path)
         {
+            int id = Int32.Parse(Request.Cookies.FirstOrDefault(n => n.Key == "loginCookie").Value);
+
             pathService.Post(ConvertToPath(path));
         }
         

@@ -25,7 +25,10 @@ namespace Hakaton.Controllers
         {
             try
             {
-                userService.GetById(Int32.Parse(Request.Cookies.FirstOrDefault(n => n.Key == "id").Value));
+                int id = Int32.Parse(Request.Cookies.FirstOrDefault(n => n.Key == "id").Value);
+                userService.GetById(id);
+
+                passager.UserId = id;
             }
             catch(Exception ex)
             {
