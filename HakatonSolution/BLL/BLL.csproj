@@ -50,10 +50,12 @@
     <Compile Include="Implementations\DataAccess\FullContext.cs" />
     <Compile Include="Implementations\DataAccess\WeekGraphicDb.cs" />
     <Compile Include="Implementations\PassengerPathRefService.cs" />
+    <Compile Include="Implementations\PassengerRequestService.cs" />
     <Compile Include="Implementations\PathService.cs" />
     <Compile Include="Implementations\UserService.cs" />
     <Compile Include="Implementations\WeekGraphicService.cs" />
     <Compile Include="Interfaces\IPassengerPathRefService.cs" />
+    <Compile Include="Interfaces\IPassengerRequestService.cs" />
     <Compile Include="Interfaces\IPathService.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
