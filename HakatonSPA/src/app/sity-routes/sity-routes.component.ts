@@ -2,6 +2,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Car } from '../Models/car';
 import { SityRoutesService } from '../sity-routes/Services/sity-routes.service';
+import { MapService } from '../map/services/map.service';
+
+declare var ymaps:any;
+
 
 @Component({
   selector: 'app-sity-routes',
@@ -13,12 +17,16 @@ export class SityRoutesComponent implements OnInit {
   public sityRoute:Car;
   public sityRoutes:Car[] = [];
 
-  constructor( private sityRouteService:SityRoutesService) {
+  public map :any;
+
+
+  constructor( private sityRouteService:SityRoutesService,private mapService:MapService) {
    }
 
   ngOnInit() {
     //this.getRoutes();
     this.addTestRoute();
+
   }
 
   addTestRoute(){
@@ -41,5 +49,31 @@ export class SityRoutesComponent implements OnInit {
 
   getRouteInformation(route:Car){
     this.sityRoute = route;
+    //this.mapService.addPath(route);
+    ymaps.ready(this.updatePath(this.sityRoute.CoordStart,this.sityRoute.CoordFin));
+    //this.updatePath(this.sityRoute.CoordStart,this.sityRoute.CoordFin);
+
   }
+
+  updatePath(startPoint: string, endPoint: string){
+    var path = new ymaps.multiRouter.MultiRoute({
+      referencePoints: [
+          startPoint,
+          endPoint
+      ],
+      params: {
+          results: 1
+      }
+    }, {
+            boundsAutoApply: true
+    });
+    var myMap = new ymaps.Map('map',{
+        center: [53.8981, 30.3325],
+        zoom: 13,
+        
+    })
+
+    myMap.geoObjects.add(path);
+  }
+
 }

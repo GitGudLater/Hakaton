@@ -14,6 +14,7 @@ import { SityRoutesService } from './sity-routes/Services/sity-routes.service';
 import { AccountService } from './services/account.service';
 import { AccountComponent } from './account/account.component';
 import { MapComponent } from './map/map.component';
+import { MapService } from 'src/app/map/services/map.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MapComponent } from './map/map.component';
     FormsModule,
     AppRoutingModule
   ],
-providers: [{ provide: BASE_URL , useValue: "http://examlple/api" }, SityRoutesService, AccountService],
+providers: [{ provide: BASE_URL , useValue: "http://examlple/api" }, SityRoutesService, AccountService, MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

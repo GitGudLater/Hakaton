@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { MapService } from './services/map.service';
+import { Car } from '../Models/car';
+
 
 declare var ymaps:any;
 
@@ -9,21 +13,33 @@ declare var ymaps:any;
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
-
   public map :any;
 
+  private _car: Car = new Car();
+
+  constructor(private mapService:MapService) { 
+
+  }
+
+
   ngOnInit() {
-    ymaps.ready().then(() => {
+    //this.mapService.items$.subscribe((items)=>this.items=items);
+    
+    this.mapService.cars$.subscribe((car)=>this._car=car);
+
+    ymaps.ready( ).then(() => {
       this.map = new ymaps.Map('map', {
         center: [53.8981, 30.3325],
         zoom: 13
       });
     });
+
+    this.updatePath(this._car.CoordStart,this._car.CoordFin);
+    
   }
 
   updatePath(startPoint: string, endPoint: string){
-    ymaps.multiRouter.MultiRoute({
+    var path = new ymaps.multiRouter.MultiRoute({
       referencePoints: [
           startPoint,
           endPoint
@@ -34,6 +50,7 @@ export class MapComponent implements OnInit {
     }, {
             boundsAutoApply: true
     });
+    ymaps.geoObjects.add(path);
   }
 
 }
