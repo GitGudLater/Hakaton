@@ -10,13 +10,14 @@ import { SityRoutesService } from '../sity-routes/Services/sity-routes.service';
 })
 export class SityRoutesComponent implements OnInit {
 
-  
+  public sityRoute:Car;
   public sityRoutes:Car[];
 
-  constructor( private sityRouteService:SityRoutesService, http: HttpClient, @Inject('BASE_URL') baseUrl: string ) { }
+  constructor( private sityRouteService:SityRoutesService) {
+   }
 
   ngOnInit() {
-    this.getRoutes();
+    //this.getRoutes();
   }
 
   getRoutes(){

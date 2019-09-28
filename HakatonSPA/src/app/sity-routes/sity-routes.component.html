@@ -1,3 +1,30 @@
 <p>
   sity-routes works!
 </p>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          date
+        </th>
+        <th>
+          target destination
+        </th>
+        <th>
+          valuable plases
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let route of sityRoutes">
+        <div>
+          <td>{{ route.TBegin }}</td>
+          <td>{{ route.Fin }}</td>
+          <td>{{ route.EmptySeats }}</td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
