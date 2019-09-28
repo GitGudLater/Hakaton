@@ -2,29 +2,83 @@
   sity-routes works!
 </p>
 
-<div>
-  <table>
-    <thead>
+<div class="routeTable">
+  <table class="table">
+    <thead class="routetableHead">
       <tr>
-        <th>
-          date
+        <th class="DateDescription">
+          Date
+        </th>
+        <th class="">
+          Target destination
         </th>
         <th>
-          target destination
-        </th>
-        <th>
-          valuable plases
+          Valuable plases
         </th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let route of sityRoutes">
-        <div>
-          <td>{{ route.TBegin }}</td>
-          <td>{{ route.Fin }}</td>
-          <td>{{ route.EmptySeats }}</td>
-        </div>
+    <tbody class="routeTableBody">
+      <tr *ngFor="let route of sityRoutes" >
+        <ng-template [ngIf]="route.Id != null">
+          <div class="tableRoute" (click)="getRouteInformation(route)">
+              <td>{{ route.TBegin }}</td>
+              <td>{{ route.Fin }}</td>
+              <td>{{ route.EmptySeats }}</td>
+          </div>
+        </ng-template>
       </tr>
     </tbody>
   </table>
+</div>
+<div>
+  <ng-template [ngIf]="sityRoute != null">
+    <ul>
+      <div>
+        Route start
+      </div>
+      <li>
+        {{sityRoute.CoordStart}}
+      </li>
+      <div>
+        Target destination
+      </div>
+      <li>
+          {{sityRoute.CoordFin}}
+      </li>
+      <div>
+        Begin time
+      </div>
+      <li>
+          {{sityRoute.TBegin}}
+      </li>
+      <div>
+        Empty seats
+      </div>
+      <li>
+          {{sityRoute.EmptySeats}}
+      </li>
+      <div>
+        Route description
+      </div>
+      <li>
+          {{sityRoute.Description}}
+      </li>
+      <div>
+        Car description
+      </div>
+      <li>
+          {{sityRoute.Car}}
+      </li>
+      <div>
+        Weekly days
+      </div>
+      <li>
+          <ul *ngFor="let day of sityRoute.Days">
+            <li>
+              {{day}}
+            </li>
+          </ul>
+      </li>
+    </ul>
+  </ng-template>
 </div>
