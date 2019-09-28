@@ -27,25 +27,19 @@ namespace BLL.Implementations.DataAccess
                 .HasForeignKey(sc => sc.PathId);
         }
 
-        private void InstallPassengerPathRefPathBinding(ModelBuilder modelBuilder)
+        private void InstallPassengerPathRefBinding(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PassengerPathRefPathBinding>()
+            modelBuilder.Entity<PassengerPathRefPathUserBinding>()
                 .HasKey(t => new { t.PassengerPathRefId, t.PathId });
 
-            modelBuilder.Entity<PassengerPathRefPathBinding>()
+            modelBuilder.Entity<PassengerPathRefPathUserBinding>()
                 .HasOne(sc => sc.PassengerPathRef)
-                .WithMany(s => s.PassengerPathRefPathBindings)
+                .WithMany(s => s.PassengerPathRefPathUserBindings)
                 .HasForeignKey(sc => sc.PathId);
-        }
 
-        private void PassengerPathRefUserBinding(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<PassengerPathRefUserBinding>()
-                .HasKey(t => new { t.PassengerPathRefId, t.UserId });
-
-            modelBuilder.Entity<PassengerPathRefUserBinding>()
+            modelBuilder.Entity<PassengerPathRefPathUserBinding>()
                 .HasOne(sc => sc.PassengerPathRef)
-                .WithMany(s => s.PassengerPathRefUserBindings)
+                .WithMany(s => s.PassengerPathRefPathUserBindings)
                 .HasForeignKey(sc => sc.UserId);
         }
     }

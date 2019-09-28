@@ -91,13 +91,13 @@ namespace BLL.Implementations
             }
         }
 
-        public JsonDayStrings GetJsonDayStrings(WeekGraphic item)
+        public JsonDayStrings GetJsonDayStrings(bool[] days)
         {
             JsonDayStrings result = new JsonDayStrings();
 
             for (int i = 0; i < 7; i++)
             {
-                if (item.Days[i])
+                if (days[i])
                 {
                     result.Days.Add(_daysOfWeek[i]);
                 }
