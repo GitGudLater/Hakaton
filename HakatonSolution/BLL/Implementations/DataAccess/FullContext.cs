@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BLL.Implementations.DataAccess
 {
-    internal class FullContext : DbContext
+    public class FullContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Path> Pathes { get; set; }
