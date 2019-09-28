@@ -1,3 +1,74 @@
 <p>
   sity-routes works!
 </p>
+<div class="routeList">
+  <ul>
+    <ng-template ngFor let-route [ngForOf]="sityRoutes">
+        <li>
+            <div class="routelistElement" (click)="getRouteInformation(route)"> 
+                <div>
+                    {{ route.TBegin }}
+                </div>
+                <div>
+                    {{ route.Fin }}
+                </div>
+                <div>
+                    {{ route.EmptySeats }}
+                </div>
+              </div>
+        </li>
+    </ng-template>
+  </ul>
+</div>
+<div>
+  <ng-template [ngIf]="sityRoute != null">
+    <ul>
+      <div>
+        Route start
+      </div>
+      <li>
+        {{sityRoute.CoordStart}}
+      </li>
+      <div>
+        Target destination
+      </div>
+      <li>
+          {{sityRoute.CoordFin}}
+      </li>
+      <div>
+        Begin time
+      </div>
+      <li>
+          {{sityRoute.TBegin}}
+      </li>
+      <div>
+        Empty seats
+      </div>
+      <li>
+          {{sityRoute.EmptySeats}}
+      </li>
+      <div>
+        Route description
+      </div>
+      <li>
+          {{sityRoute.Description}}
+      </li>
+      <div>
+        Car description
+      </div>
+      <li>
+          {{sityRoute.Car}}
+      </li>
+      <div>
+        Weekly days
+      </div>
+      <li>
+          <ul *ngFor="let day of sityRoute.Days">
+            <li>
+              {{day}}
+            </li>
+          </ul>
+      </li>
+    </ul>
+  </ng-template>
+</div>
