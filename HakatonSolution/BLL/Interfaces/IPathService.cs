@@ -2,7 +2,7 @@
 
 namespace BLL.Interfaces
 {
-    interface IPathService : IService<Path>
+    public interface IPathService : IService<Path>
     {
     }
 }
