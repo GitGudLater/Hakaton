@@ -1,35 +1,68 @@
-﻿using BLL.Interfaces;
+﻿using BLL.Implementations.DataAccess;
+using BLL.Interfaces;
 using Common.Model;
-using System;
 using System.Collections.Generic;
 
 namespace BLL.Implementations
 {
-    class PassengerPathRefService : IPassengerPathRefService
+    public class PassengerPathRefService : IPassengerPathRefService
     {
+        private FullContext _db;
+
+        public PassengerPathRefService(FullContext db)
+        {
+            _db = db;
+        }
+
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            PassengerPathRef reference = GetById(id);
+
+            if (reference != null)
+            {
+                _db.PassengerPathRefs.Remove(reference);
+            }
+
+            _db.SaveChangesAsync();
         }
 
         public IEnumerable<PassengerPathRef> GetAll()
         {
-            throw new NotImplementedException();
+            return _db.PassengerPathRefs;
         }
 
         public PassengerPathRef GetById(int id)
         {
-            throw new NotImplementedException();
+            PassengerPathRef reference = null;
+            foreach (var item in _db.PassengerPathRefs)
+            {
+                if (item.Id == id)
+                {
+                    reference = item;
+                    break;
+                }
+            }
+
+            return reference;
         }
 
         public void Post(PassengerPathRef item)
         {
-            throw new NotImplementedException();
+            _db.PassengerPathRefs.Add(item);
+
+            _db.SaveChangesAsync();
         }
 
         public void Put(PassengerPathRef item)
         {
-            throw new NotImplementedException();
+            PassengerPathRef reference = GetById(item.Id);
+            if (reference != null)
+            {
+                reference.PathId = item.PathId;
+                reference.PathId = item.UserId;
+
+                _db.SaveChangesAsync();
+            }
         }
     }
 }
