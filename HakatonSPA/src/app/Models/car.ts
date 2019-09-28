@@ -1,9 +1,7 @@
 export class Car {
     Id:number;
-    NCoordStart:number;
-    WCoordStart:number;
-    NFin:number;
-    WFin:number;
+    CoordStart:string;
+    CoordFin:string;
     TBegin:string;
     EmptySeats:number;
     Description:string;
