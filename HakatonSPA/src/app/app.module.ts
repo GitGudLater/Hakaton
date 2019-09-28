@@ -7,16 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SityRoutesComponent } from './sity-routes/sity-routes.component';
 import { SityRoutesService } from './sity-routes/Services/sity-routes.service';
-import { MapPartComponent } from './map-part/map-part.component';
 import { AccountService } from './services/account.service';
 import { AccountComponent } from './account/account.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SityRoutesComponent,
-    MapPartComponent,
     AccountComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
