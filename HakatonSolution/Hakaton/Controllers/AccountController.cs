@@ -19,7 +19,7 @@ namespace Hakaton.Controllers
         [HttpGet("{id}")]
         public ActionResult<JsonUser> Get(int id)
         {
-            return ConvertToJsonUser(userService.GetById(id));
+            return userService.GetJsonUser(id);
         }
 
         // POST api/values
@@ -37,10 +37,10 @@ namespace Hakaton.Controllers
 
         private bool Authorizer(JsonUser user)
         {
-            Common.Model.User user1 = userService.GetById(user.Id);
-            if(user.Password == user1.Password)
+            Common.Model.User user1 = userService.GetAll().FirstOrDefault(userr => userr.Email == user.Email);
+            if(user1 != null && user.Password == user1.Password)
             {
-                Response.Cookies.Append("id", user.Id.ToString());
+                Response.Cookies.Append("loginCookie", user.Id.ToString());
                 return true;
             }
             return false;
