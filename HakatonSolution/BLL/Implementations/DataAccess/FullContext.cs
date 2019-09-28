@@ -10,6 +10,7 @@ namespace BLL.Implementations.DataAccess
         public DbSet<Path> Pathes { get; set; }
         public DbSet<PassengerPathRef> PassengerPathRefs { get; set; }
         public DbSet<WeekGraphicDb> WeekGraphics { get; set; }
+        public DbSet<PassengerRequest> PassengerRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
