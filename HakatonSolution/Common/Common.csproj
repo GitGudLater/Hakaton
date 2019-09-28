@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingEntities\PassengerPathRefUserBinding.cs" />
+    <Compile Include="BindingEntities\PassengerPathRefPathBinding.cs" />
+    <Compile Include="BindingEntities\PathUserBinding.cs" />
+    <Compile Include="JsonModels\JsonDayStrings.cs" />
     <Compile Include="JsonModels\JsonPassager.cs" />
     <Compile Include="JsonModels\JsonPath.cs" />
     <Compile Include="JsonModels\JsonUser.cs" />

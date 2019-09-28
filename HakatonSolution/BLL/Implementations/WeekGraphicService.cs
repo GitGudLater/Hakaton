@@ -1,5 +1,6 @@
 ﻿using BLL.Implementations.DataAccess;
 using BLL.Interfaces;
+using Common.JsonModels;
 using Common.Model;
 using System.Collections.Generic;
 
@@ -7,6 +8,17 @@ namespace BLL.Implementations
 {
     public class WeekGraphicService : IWeekGraphicService
     {
+        const string MONDAY = "Monday";
+        const string TUESDAY = "Tuesday";
+        const string WEDNESDAY = "Wednesday";
+        const string THURSDAY = "Thursday";
+        const string FRIDAY = "Friday";
+        const string SATURDAY = "Saturday";
+        const string SUNDAY = "Sunday";
+
+        private static string[] _daysOfWeek = new string[] 
+        { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };
+
         private FullContext _db;
 
         public WeekGraphicService(FullContext db)
@@ -77,6 +89,21 @@ namespace BLL.Implementations
 
                 _db.SaveChangesAsync();
             }
+        }
+
+        public JsonDayStrings GetJsonDayStrings(WeekGraphic item)
+        {
+            JsonDayStrings result = new JsonDayStrings();
+
+            for (int i = 0; i < 7; i++)
+            {
+                if (item.Days[i])
+                {
+                    result.Days.Add(_daysOfWeek[i]);
+                }
+            }
+
+            return result;
         }
 
         private WeekGraphicDb GetWeekGraphicDb(int id)

@@ -1,4 +1,7 @@
-﻿namespace Common.Model
+﻿using BLL.Implementations.DataAccess.BindingEntities;
+using System.Collections.Generic;
+
+namespace Common.Model
 {
     public class Path
     {
@@ -13,5 +16,12 @@
         public int MaxSeads { get; set; }
 
         public string Description { get; set; }
+
+        public ICollection<PathUserBinding> PathUserBindings { get; set; }
+
+        public Path()
+        {
+            PathUserBindings = new List<PathUserBinding>();
+        }
     }
 }
