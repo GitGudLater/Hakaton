@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JsonModels\JsonPath.cs" />
+    <Compile Include="JsonModels\JsonUser.cs" />
     <Compile Include="Model\PassengerPathRef.cs" />
     <Compile Include="Model\Path.cs" />
     <Compile Include="Model\User.cs" />
