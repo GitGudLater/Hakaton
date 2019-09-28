@@ -26,4 +26,8 @@ export class AccountService {
   putLog(reg: Register) {
     this.http.put(this.url, reg).toPromise();
   }
+
+  getUserInformation() {
+    return this.http.get(this.url);
+  }
 }

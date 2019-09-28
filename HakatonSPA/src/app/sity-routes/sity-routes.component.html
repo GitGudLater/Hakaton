@@ -23,6 +23,9 @@
 <div>
   <ng-template [ngIf]="sityRoute != null">
     <ul>
+      <div (click)="requestForATrip(user)">
+        Send request for a trip
+      </div>
       <div>
         Route start
       </div>

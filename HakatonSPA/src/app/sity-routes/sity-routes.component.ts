@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Car } from '../Models/car';
 import { SityRoutesService } from '../sity-routes/Services/sity-routes.service';
 import { MapService } from '../map/services/map.service';
+import { AccountService } from '../services/account.service';
+import { User } from '../Models/user';
 
 declare var ymaps:any;
 
@@ -14,19 +16,27 @@ declare var ymaps:any;
 })
 export class SityRoutesComponent implements OnInit {
 
+  public user:User;
   public sityRoute:Car;
   public sityRoutes:Car[] = [];
 
   public map :any;
 
 
-  constructor( private sityRouteService:SityRoutesService,private mapService:MapService) {
+  constructor( private accountService:AccountService, private sityRouteService:SityRoutesService,private mapService:MapService) {
    }
 
   ngOnInit() {
     //this.getRoutes();
     this.addTestRoute();
+    this.requestForAUser();
+  }
 
+  requestForAUser(){
+    this.accountService.getUserInformation().subscribe((data:User)=>this.user=data);
+  }
+
+  requestForATrip(_user:User){
   }
 
   addTestRoute(){
